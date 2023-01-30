@@ -1,11 +1,19 @@
 import React from 'react'
 import styles from '../styles/Global'
 
-const Button = ({assetUrl,link}) => {
+const Button = ({ assetUrl, link }) => {
+      const openLinkInNewTab = (url) => {
+        const newTab = window.open(url, "_blank", "noopener,noreferrer");
+        if (newTab) newTab.opener = null;
+      };
   return (
     <div
       className={`${styles.btnBlack}`}
-      onClick={() => window.open(link, "_blank")}
+      onClick={() =>
+        openLinkInNewTab(
+          "https://expo.dev/@hypotheticalwhale/marketplace_app?serviceType=classic&distribution=expo-go"
+        )
+      }
     >
       <img src={assetUrl} alt="expo_icon" className={`${styles.btnIcon}`} />
       <div className="flex flex-col justify-start ml-4">
